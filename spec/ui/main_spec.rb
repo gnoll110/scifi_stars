@@ -10,6 +10,9 @@ RSpec.feature "Welcome", :type => :feature do
   scenario "Star page via name" do
     visit "/"
 
-    expect(page).to have_text("Welcome")
+    fill_in "Star", :with => "Barnard's Star"
+    click_button "Search"
+
+    expect(page).to have_text("Barnard's Star")
   end
 end
