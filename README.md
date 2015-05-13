@@ -5,7 +5,7 @@ Stars: in reality and SciFi
 
 ```
 > git clone https://github.com/gnoll110/scifi_stars.git
-> cd roda_intro_code
+> cd scifi_stars
 > bundle install
 ..................
 > bundle exec rspec
