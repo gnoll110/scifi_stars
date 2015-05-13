@@ -1,7 +1,0 @@
-%h1 Welcome#index
-%p Find me in app/views/welcome/index.html.haml
-%form#search.search{:action => "/star"}
-  %label.accessible-hide{:for => "star-search"}
-    Star search
-  %input#star-search.left.no-margin{:autocomplete => "off", :name => "query", :required => "required", :style => "width: 95%;", :type => "text"}/
-  %input.accessible-hide{:type => "submit", :value => "Search"}/
