@@ -1,3 +1,5 @@
 %h1 Star#index
 %p Find me in app/views/star/index.html.haml
-\%= render @customer %&gt;
+- data = @data[:query]
+%p
+  =data
