@@ -22,6 +22,6 @@ RSpec.feature "Welcome", :type => :feature do
     fill_in "Star", :with => "Barnard's Blackhole"
     click_button "Search"
 
-    expect(page).to have_text("Barnard's Star")
+    expect(page).to have_text("NotFound")
   end
 end

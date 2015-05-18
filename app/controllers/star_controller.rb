@@ -2,7 +2,8 @@ class StarController < ApplicationController
   def index
     @data = params
     star_name = params[:query]
-    puts star_name
-    star_finder = ScifiStar::StarFinder.new.find(star_name)
+    star_finder = StarFinder.new
+    result = star_finder.find(star_name)
+    @data = result
   end
 end
