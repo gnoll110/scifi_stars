@@ -15,4 +15,13 @@ RSpec.feature "Welcome", :type => :feature do
 
     expect(page).to have_text("Barnard's Star")
   end
+
+  scenario "Star page via bad name" do
+    visit "/"
+
+    fill_in "Star", :with => "Barnard's Blackhole"
+    click_button "Search"
+
+    expect(page).to have_text("Barnard's Star")
+  end
 end
