@@ -1,7 +1,11 @@
 class StarFinder
   def find(search)
-    result = 'NotFound'
-    result = search if search == "Barnard's Star"
+    star = Star.find_by(name: search)
+    if star == nil
+      result = 'NotFound'
+    else
+      result = star.name
+    end
     return result
   end
 end

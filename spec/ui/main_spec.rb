@@ -1,6 +1,18 @@
 require "rails_helper"
 
 RSpec.feature "Welcome", :type => :feature do
+  before :each do
+    @smith = Star.create(
+      name: 'Barnard\'s Star'
+    )
+    @jones = Star.create(
+      name: 'Deneb'
+    )
+    @johnson = Star.create(
+      name: 'Vega'
+    )
+  end
+
   scenario "Naviate to homepage" do
     visit "/"
 
