@@ -24,11 +24,34 @@ class LoadStar
       ele = doc.root
       puts ele.type
       puts ele.value
-      children = ele.children
-      children.each do | child |
-        puts child.type
-        puts child.value.to_s
+      if ele.type = 'root'
+        @depth+=1
+        count(ele.type)
+        chld ele
       end
+    end
+  end
+
+  private
+
+  def chld(ele)
+    #puts ele.class
+    children = ele.children
+    #puts children.class
+    children.each do | child |
+       #puts child.class
+      #puts '=a '+ child.to_s
+      front_str = ''
+      @depth.times do
+        front_str+=' '
+      end
+      puts front_str+'=b>'+child.type.to_s+'<='+child.value.to_s
+      @depth+=1
+      #puts 'd==='+@depth.to_s
+      count(child.type)
+      chld(child)
+      #puts '>8>'
+      @depth-=1
     end
   end
 end
