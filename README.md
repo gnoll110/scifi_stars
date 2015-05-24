@@ -11,3 +11,8 @@ Stars: in reality and SciFi
 > bundle exec rspec
 > bundle exec rackup
 ```
+
+## To Do
+* Test app/lib/load_star.rb
+* Load start rake task
+ 
