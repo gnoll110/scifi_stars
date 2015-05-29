@@ -1,16 +1,22 @@
 require 'spec_helper'
 require 'rake'
 
-RSpec.describe "load_stars_task", type: :rake do
+RSpec.describe "loads namespace rake tasks", type: :rake do
   before :all do
     Rake.application.rake_require "tasks/loads"
     Rake::Task.define_task(:environment)
   end
 
+  describe 'loads:stars' do
 
-  it "rakes it out" do
-    #expect(subject).to be_a(Rake::Task)
-    #expect(subject.name).to eq("load_satars_task")
-    #expect(subject).to eq(task)
+    let :run_rake_task do
+      Rake::Task["loads:stars"].reenable
+      Rake.application.invoke_task "loads:stars"
+    end
+
+    it "should load stars" do
+      Loads.any_instance.should_receive :stars
+      run_rake_task
+    end
   end
 end
