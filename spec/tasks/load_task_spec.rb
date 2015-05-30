@@ -15,7 +15,7 @@ RSpec.describe "loads namespace rake tasks", type: :rake do
     end
 
     it "should load stars" do
-      Loads.any_instance.should_receive :stars
+      expect_any_instance_of(LoadStar).to receive(:process)
       run_rake_task
     end
   end
