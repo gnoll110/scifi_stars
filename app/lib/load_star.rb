@@ -72,3 +72,15 @@ end
 
 class Html_elementCommand
 end
+
+class Xml_commentCommand
+end
+
+class UlCommand
+end
+
+class LiCommand
+end
+
+class EntityCommand
+end
