@@ -2,6 +2,11 @@ require 'mediawiki_api'
 require 'kramdown'
 
 class LoadStar
+  def initialize(source=nil)
+    class_name = source.class.to_s+'Source'
+    @sources = class_name.constantize.new(source)
+  end
+
   def process
     systems = [ 'Stars_and_planetary_systems_in_fiction',
                 'Aldebaran_in_fiction',
@@ -83,4 +88,28 @@ class LiCommand
 end
 
 class EntityCommand
+end
+
+class NilClassSource
+  def initialize(source)
+  end
+
+  def process
+  end
+end
+
+class StringSource
+  def initialize(source)
+  end
+
+  def process
+  end
+end
+
+class ArraySource
+  def initialize(source)
+  end
+
+  def process
+  end
 end
