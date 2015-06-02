@@ -8,18 +8,6 @@ class LoadStar
   end
 
   def process
-    systems = [ 'Stars_and_planetary_systems_in_fiction',
-                'Aldebaran_in_fiction',
-                'Alpha_Centauri_in_fiction',
-                'Altair_in_fiction',
-                'Betelgeuse_in_fiction',
-                'Deneb_in_fiction',
-                'Epsilon_Eridani_in_fiction',
-                'Rigel_in_fiction',
-                'Sirius_in_fiction',
-                'Tau_Ceti_in_fiction',
-                'Vega_in_fiction' ]
-
     client = MediawikiApi::Client.new "http://en.wikipedia.org/w/api.php"
 
     systems.each do | system |
@@ -100,6 +88,7 @@ end
 
 class StringSource
   def initialize(source)
+    @sources = source
   end
 
   def process
@@ -108,8 +97,12 @@ end
 
 class ArraySource
   def initialize(source)
+    @sources = source
   end
 
   def process
+    @sources.each do | page |
+      puts '>'+page
+    end    
   end
 end

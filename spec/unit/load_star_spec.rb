@@ -16,7 +16,17 @@ RSpec.feature "Load Star", :type => :unit do
     end
 
     it 'against...' do
-      array = [ "", "" ]
+      array = [ 'Stars_and_planetary_systems_in_fiction',
+                'Aldebaran_in_fiction',
+                'Alpha_Centauri_in_fiction',
+                'Altair_in_fiction',
+                'Betelgeuse_in_fiction',
+                'Deneb_in_fiction',
+                'Epsilon_Eridani_in_fiction',
+                'Rigel_in_fiction',
+                'Sirius_in_fiction',
+                'Tau_Ceti_in_fiction',
+                'Vega_in_fiction' ]
       loader = LoadStar.new(array)
       #loader.process
       expect().to eq ''
