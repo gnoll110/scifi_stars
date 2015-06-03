@@ -1,13 +1,45 @@
 require 'mediawiki_api'
 require 'kramdown'
 
+class NilSource
+  def initialize
+  end
+
+  def process(s)
+  end
+end
+
+class StringSource
+  def initialize(source)
+    @sources = source
+  end
+
+  def process(s)
+  end
+end
+
+class ArraySource
+  def initialize(source)
+    @sources = source
+  end
+
+  def process(s)
+    @sources.each do | page |
+      puts '>'+page
+    end    
+  end
+end
+
 class LoadStar
-  def initialize(source=nil)
-    class_name = source.class.to_s+'Source'
-    @sources = class_name.constantize.new(source)
+  def initialize(source = NilSource.new)
+    @source = source
   end
 
   def process
+    @source.process(self)
+  end
+
+  def baggage
     client = MediawikiApi::Client.new "http://en.wikipedia.org/w/api.php"
 
     systems.each do | system |
@@ -76,33 +108,4 @@ class LiCommand
 end
 
 class EntityCommand
-end
-
-class NilClassSource
-  def initialize(source)
-  end
-
-  def process
-  end
-end
-
-class StringSource
-  def initialize(source)
-    @sources = source
-  end
-
-  def process
-  end
-end
-
-class ArraySource
-  def initialize(source)
-    @sources = source
-  end
-
-  def process
-    @sources.each do | page |
-      puts '>'+page
-    end    
-  end
 end

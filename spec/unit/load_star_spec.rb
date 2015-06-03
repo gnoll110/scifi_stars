@@ -10,7 +10,8 @@ RSpec.feature "Load Star", :type => :unit do
 
     it 'against...' do
       string = ""
-      loader = LoadStar.new(string)
+      source = StringSource.new(string)
+      loader = LoadStar.new(source)
       #loader.process
       expect().to eq ''
     end
@@ -27,7 +28,8 @@ RSpec.feature "Load Star", :type => :unit do
                 'Sirius_in_fiction',
                 'Tau_Ceti_in_fiction',
                 'Vega_in_fiction' ]
-      loader = LoadStar.new(array)
+      source = ArraySource.new(array)
+      loader = LoadStar.new(source)
       #loader.process
       expect().to eq ''
     end
