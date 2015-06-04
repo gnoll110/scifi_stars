@@ -1,7 +1,7 @@
 require 'mediawiki_api'
 require 'kramdown'
 
-class NilSource
+class AbstractSource
   def initialize
   end
 
@@ -9,7 +9,15 @@ class NilSource
   end
 end
 
-class StringSource
+class NilSource < AbstractSource
+  def initialize
+  end
+
+  def process(s)
+  end
+end
+
+class StringSource < AbstractSource
   def initialize(source)
     @sources = source
   end
@@ -18,7 +26,7 @@ class StringSource
   end
 end
 
-class ArraySource
+class ArraySource < AbstractSource
   def initialize(source)
     @sources = source
   end
