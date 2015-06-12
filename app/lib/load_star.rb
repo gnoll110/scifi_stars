@@ -23,6 +23,7 @@ class StringSource < AbstractSource
   end
 
   def process(s)
+    puts "in StringSource.process"
   end
 end
 
@@ -32,6 +33,7 @@ class ArraySource < AbstractSource
   end
 
   def process(s)
+    puts "in ArraySource.process"
     @sources.each do | page |
       puts '>'+page
     end    
@@ -44,7 +46,9 @@ class LoadStar
   end
 
   def process
+    puts "in LoadStar.process | "+@source.class.to_s
     @source.process(self)
+    puts "end LoadStar.process"
   end
 
   def baggage
